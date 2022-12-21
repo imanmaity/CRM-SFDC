@@ -1,0 +1,109 @@
+JEE SFDC DQ Day 1
+
+1.What will be the output of the following query? SELECT LPAD('SQL,5,'*') FROM DUAL
+
+**SQL
+
+-----------------------------------------------------------------------------------------------------------
+
+2.Which of the following group will consider the null value
+
+COUNT(*)
+
+-----------------------------------------------------------------------------------------------------------
+
+3.BOOK_ID VARCHAR2(20)
+BOOK_NAME VARCHAR2(30)
+What will be the output of the following query
+SELECT book_name
+FROM Book_master
+WHERE book_name LIKE '%JAVA%' OR '%C%'
+
+Error in the querry
+
+-----------------------------------------------------------------------------------------------------------
+
+4.SELECT dept_code, count(staff_code)
+FROM staff_master
+GROUP BY dept_code
+HAVING dept_code<>10
+
+Error:No need to use a having clause, WHERE clause can be used instead.
+
+-----------------------------------------------------------------------------------------------------------
+
+5.Book_code NUMBER(5)
+Book_Name varchar2(40)
+Pub_year number(4)
+
+I would like to print a report classifying the books on the following basis
+	Publishing year		   Edition
+	Between 1973 and 1999	   "Old"
+		>=2000		   "New"
+How can I achieve this?
+
+Using a CASE statement
+
+-----------------------------------------------------------------------------------------------------------
+
+6.EMPNO ENAME DEPTNO MGR JOB SAL
+101 Smith 20 120 SA_REP 4000
+102 Martin 10 105 CLERK 2500
+103 Chris 20 120 IT_ADMIN 4200
+105 CLERK 2500
+104 John 30 
+108 HR_CLERK 3500 
+105 Diana 30 
+108 IT_ADMIN 5000 
+106 Smith 40 
+110 AD_ASST 3000 
+108 Jennifer 30 
+110 HR_DIR 6500 
+   
+EMPNO is the primary key.
+MGR is the ID of managers and refers to the EMPNO. 
+The JOB column is a NOT NULL. Identify the correct option/options to find department wise average salary 
+for the empl oyees wherein employees salary is in range of 3000 to 4000. 
+
+SELECT AVG(sal), deptno FROM emp WHERE sal >= 3000 and sal <= 4000 GROUP BY deptno
+
+-----------------------------------------------------------------------------------------------------------
+
+7.SELECT deptno,ename,sal FROM emp
+ORDER By deptno, sal dsec;
+What will be the output?
+
+DEPTNO ENAME SAL 
+10 KING 5000 
+10 CLARK 2450 
+20 SCOTT 3000 
+20 MILLER 3000 
+20 JONES 2975 
+30 BLAKE 2850 
+30 ALLEN 1600 
+30 TURNER 1500 
+30 WARD 1250 
+
+-----------------------------------------------------------------------------------------------------------
+
+8.Evaluate this SQL statement 
+SELECT emp.empno, (15"emp.sal) + (.5" emp.comm) + (.35• emp.sal) AS CALC_VALUE F ROM emp; 
+What will happen if you remove all the parentheses from the calculation? 
+
+There will be no difference in the values displayed in the CALC_VALUE column with or without parenthesis. 
+
+-----------------------------------------------------------------------------------------------------------
+
+9.Assuming today is Monday, 10 July 2000, what is returned by this statement: 
+SELECT to_char(NEXT_DAY(sysdate, 'MONDAY'), 'DD-MON-YY') FROM dual;
+
+17-JUL-00
+
+-----------------------------------------------------------------------------------------------------------
+
+10.SELECT dept_code, staff_name, staff_sal 
+FROM Staff Master 
+ORDER BY dept_code, staff_sal 
+What is true regarding the above query? 
+
+Sorts the records based on dept_code and then staff_sal Solution 
